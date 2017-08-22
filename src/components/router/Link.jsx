@@ -1,9 +1,7 @@
 import React from 'react'
-import createHistory from 'history/createBrowserHistory'
+import PropTypes from 'prop-types'
 
-const history = createHistory()
-
-const Link = ({ to, children }) => (
+const Link = ({ to, children }, { history }) => (
   <a
     onClick={(e) => {
       e.preventDefault()
@@ -14,5 +12,9 @@ const Link = ({ to, children }) => (
     {children}
   </a>
 )
+
+Link.contextTypes = {
+  history: PropTypes.object,
+};
 
 export default Link
